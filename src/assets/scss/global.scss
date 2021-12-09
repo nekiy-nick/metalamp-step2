@@ -1,0 +1,19 @@
+@import "normalize.css/normalize.css";
+
+@import "material-icons/iconfont/material-icons.css";
+$fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
+@import "~@fortawesome/fontawesome-free/css/all.css";
+
+@import "fonts";
+@import "_vars";
+@import "_mixins";
+
+@import "../../components/_components";
+
+body {
+  font-family: $main-font;
+  color: $primary-dark;
+  font-size: $body-text-size;
+  line-height: $body-line-height;
+  background-color: $light-color;
+}
