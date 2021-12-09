@@ -1,0 +1,26 @@
+mixin _color-pallete(options = {})
+
+  if (!options.colorName)
+    - options.colorName = 'name of a color'
+  if (!options.colorHex)
+    - options.colorHex = 'hex of a color'
+  -
+    let colorName = 'name';
+    let colorHex = 'hex';
+    let colorMode = 'modifier';
+
+  div(class="color-pallete")
+    div(class="color-pallete__color-cube" class=options.colorMode)
+    div(class="color-pallete__text-wrapper")
+      span(class="color-pallete__name-color")= options.colorName
+      span(class="color-pallete__hex-color")= options.colorHex
+
+-
+  modifier = {
+    dark: 'color-pallete__color-cube_dark',
+    main: 'color-pallete__color-cube_main',
+    light: 'color-pallete__color-cube_light',
+    lighten: 'color-pallete__color-cube_lighten',
+    cosmos: 'color-pallete__color-cube_cosmos',
+    success: 'color-pallete__color-cube_success'
+  };
