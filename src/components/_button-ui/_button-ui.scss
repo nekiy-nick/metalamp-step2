@@ -1,0 +1,77 @@
+.button-ui {
+  padding: 14px 18px;
+  align-self: baseline;
+  height: 43px;
+
+  @include h3-header;
+  color: $light-color;
+
+  border-radius: 22px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+  @include element-gradient($cosmos-color, $cosmos-gradient-color);
+
+  &:hover,
+  &:focus {
+    @include element-gradient(
+      $cosmos-color-transparent,
+      $cosmos-gradient-color-transparent
+    );
+    outline: none;
+  }
+
+  &_light {
+    padding: 12px 18px;
+
+    color: $cosmos-color;
+
+    @include border-gradient-size(2px);
+    @include border-gradient(
+      $cosmos-color,
+      0%,
+      $cosmos-gradient-color,
+      100%,
+      180deg
+    );
+
+    &:hover,
+    &:focus {
+      @include border-gradient(
+        $cosmos-color-transparent,
+        0%,
+        $cosmos-gradient-color-transparent,
+        100%,
+        180deg
+      );
+    }
+  }
+
+  &_long {
+    position: relative;
+    min-width: 320px;
+    padding-left: 40px;
+    padding-right: 40px;
+
+    &::after {
+      content: "\e5c8";
+      position: absolute;
+      top: 50%;
+      right: 10px;
+
+      font-family: "Material Icons";
+      font-size: $h1-text-size;
+      line-height: normal;
+
+      transform: translateY(-50%);
+    }
+  }
+
+  &_link {
+    height: auto;
+
+    text-decoration: none;
+    line-height: 15px;
+  }
+}

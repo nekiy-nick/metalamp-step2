@@ -1,0 +1,26 @@
+mixin _button-ui(options = {})
+
+  if (!options.btnText)
+    - options.btnText = 'i\'m a button'
+  if (!options.btnType)
+    - options.btnType = 'button';
+  if (!options.href)
+    - options.href = 'add address'
+
+  -
+    let btnText = 'text';
+    let btnType = 'type';
+    let modeBtn = 'modifier';
+    let link = false;
+    let href = 'href';
+
+  if (options.link)
+    a(href=options.href class="button-ui button-ui_link" class=options.mode)= options.btnText
+  else
+    button(class="button-ui" class=options.modeBtn type=options.btnType)= options.btnText
+
+-
+  modifierBtn = {
+    light: 'button-ui_light',
+    long: 'button-ui_long'
+  };
