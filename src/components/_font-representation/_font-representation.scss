@@ -1,0 +1,45 @@
+.font-representation {
+  display: flex;
+  align-items: flex-start;
+
+  &__header {
+    flex-basis: 50px;
+    text-transform: capitalize;
+    color: $primary-light;
+    font-size: initial;
+    text-align: right;
+
+    &_h1 {
+      font-size: $h1-text-size;
+      text-transform: uppercase;
+    }
+
+    &_h2 {
+      font-size: $h2-text-size;
+      text-transform: uppercase;
+    }
+
+    &_h3 {
+      font-size: $h3-text-size;
+      text-transform: uppercase;
+    }
+  }
+
+  &__text {
+    flex-basis: 380px;
+    margin: 0;
+    margin-left: 30px;
+
+    &_h1 {
+      @include h1-header;
+    }
+
+    &_h2 {
+      @include h2-header;
+    }
+
+    &_h3 {
+      @include h3-header;
+    }
+  }
+}

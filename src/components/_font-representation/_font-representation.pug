@@ -1,0 +1,24 @@
+mixin _font-representation(options = {})
+
+  -
+    let header = 'Header';
+    let text = 'Text';
+    let modeHeader = 'modifier';
+    let modeText = 'modifier';
+
+  div(class="font-representation")
+    span(class="font-representation__header" class=options.modeHeader)= options.header
+    p(class="font-representation__text" class=options.modeText)= options.text
+
+-
+  let modifierHeader = {
+    h1: 'font-representation__header_h1',
+    h2: 'font-representation__header_h2',
+    h3: 'font-representation__header_h3'
+  };
+
+  let modifierText = {
+    h1: 'font-representation__text_h1',
+    h2: 'font-representation__text_h2',
+    h3: 'font-representation__text_h3'
+  };
