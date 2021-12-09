@@ -1,0 +1,20 @@
+block variables
+
+doctype html
+html(lang="ru")
+  head
+    meta(charset="UTF-8")
+    title #{title}
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="IE=Edge")
+    meta(name="description", content=description)
+    meta(name="keywords", content=keywords)
+    style
+      include ui-layout.scss
+    block head
+      
+  body(class=pageClass)
+
+    block content
+
+    block script
