@@ -1,0 +1,52 @@
+@mixin h1-header() {
+  font-family: $main-font;
+  color: $primary-darker;
+  font-size: $h1-text-size;
+  font-weight: bold;
+}
+
+@mixin h2-header() {
+  font-family: $main-font;
+  color: $primary-darker;
+  font-size: $h2-text-size;
+  font-weight: bold;
+}
+
+@mixin h3-header() {
+  font-family: $main-font;
+  color: $primary-darker;
+  font-size: $h3-text-size;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+@mixin h4-header() {
+  font-family: $main-font;
+  color: $primary-dark;
+  font-size: $body-text-size;
+}
+
+@mixin element-gradient($first-color, $second-color) {
+  background-image: linear-gradient(180deg, $first-color, $second-color);
+}
+
+@mixin border-gradient(
+  $first-color,
+  $first-color-transparent,
+  $second-color,
+  $second-color-transparent,
+  $degree
+) {
+  background-image: linear-gradient(white, white),
+    linear-gradient(
+      $degree,
+      $first-color $first-color-transparent,
+      $second-color $second-color-transparent
+    );
+}
+
+@mixin border-gradient-size($border-width) {
+  border: $border-width solid transparent;
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
