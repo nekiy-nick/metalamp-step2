@@ -1,0 +1,25 @@
+$main-font: "Montserrat", Helvetica, Arial, sans-serif;
+
+$primary-darker: rgba(31, 32, 65, 1);
+$primary-dark: transparentize($primary-darker, 0.25);
+$primary-main: transparentize($primary-darker, 0.5);
+$primary-light: transparentize($primary-darker, 0.75);
+$primary-lighten: transparentize($primary-darker, 0.95);
+$cosmos-color: #bc9cff;
+$success-color: #6fcf97;
+$light-color: #fff;
+
+$cosmos-gradient-color: hsla(227, 91%, 76%, 1);
+$cosmos-gradient-color-transparent: transparentize($cosmos-gradient-color, 0.5);
+$cosmos-color-transparent: transparentize($cosmos-color, 0.5);
+$success-gradient-color: hsla(191, 76%, 66%, 1);
+
+$h1-text-size: 24px;
+$h2-text-size: 19px;
+$h3-text-size: 12px;
+$body-text-size: 14px;
+
+$h1-line-height: 30px;
+$h2-line-height: 24px;
+$h3-line-height: 15px;
+$body-line-height: 24px;
