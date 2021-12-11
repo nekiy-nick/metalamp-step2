@@ -1,0 +1,8 @@
+mixin _like-button(options = {})
+
+  if (!options.likeCount)
+    - options.likeCount = 0;
+  -
+    let likeCount = 'like number';
+
+  button(class="like-button js-like-button" type="button")=options.likeCount
