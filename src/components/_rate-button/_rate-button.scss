@@ -1,0 +1,29 @@
+.rate-button {
+  padding: 0;
+  margin: 0;
+  max-width: max-content;
+
+  list-style: none;
+
+  &__item {
+    float: left;
+  }
+
+  &__btn {
+    @include gradient-text(
+      $cosmos-color,
+      0%,
+      $cosmos-gradient-color,
+      100%,
+      180deg
+    );
+
+    border: none;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+      @include text-shadow($primary-light);
+    }
+  }
+}

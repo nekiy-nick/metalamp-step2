@@ -1,0 +1,11 @@
+mixin _rate-button(options = {})
+
+  if (!options.count)
+    - options.count = 5;
+
+  - let countStar = 0;
+
+  ul(class="rate-button js-rate-button")
+    while countStar < options.count
+      li(class="rate-button__item js-rate-button__item" data-rating = ++countStar)
+        button(class="rate-button__btn js-rate-button__btn material-icons" type="button") star_border
