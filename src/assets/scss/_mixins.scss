@@ -50,3 +50,28 @@
   background-origin: border-box;
   background-clip: padding-box, border-box;
 }
+
+@mixin gradient-text(
+  $first-color,
+  $first-color-transparent,
+  $second-color,
+  $second-color-transparent,
+  $degree
+) {
+  color: transparent;
+  background: linear-gradient(
+    $degree,
+    $first-color $first-color-transparent,
+    $second-color $second-color-transparent
+  );
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@mixin button-shadow($color) {
+  box-shadow: 1px 1px 4px 1px $color;
+}
+
+@mixin text-shadow($color) {
+  text-shadow: 2px 2px 2px transparent, 4px 4px 4px $color;
+}
