@@ -1,0 +1,19 @@
+mixin _checkbox-buttons(options = {})
+
+  if (options.items == undefined)
+    - options.items = [{ label: 'Initial checkbox' }, { label: 'Second checkbox', description: 'This is descriotion text' }];
+
+  div(class="checkbox-buttons")
+    for item in options.items
+
+      if (item.description)
+        - item.labelMode = 'checkbox-buttons__label_bold'
+
+      div(class="checkbox-buttons__item")
+        label(class="checkbox-buttons__label" class=item.labelMode)
+          input(class="checkbox-buttons__checkbox" type="checkbox" form=options.form value=item.value name=item.name)
+          span(class="checkbox-buttons__pseudocheckbox")
+          = item.label
+
+        if(item.description)
+          p(class="checkbox-buttons__description-text")=item.description
