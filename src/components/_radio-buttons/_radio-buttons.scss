@@ -1,0 +1,64 @@
+.radio-buttons {
+  display: flex;
+
+  &__radio {
+    appearance: none;
+
+    &:checked {
+      & + .radio-buttons__pseudoradio {
+        border-color: $cosmos-color;
+
+        &::after {
+          opacity: 1;
+        }
+      }
+    }
+
+    &:focus {
+      outline: none;
+
+      & + .radio-buttons__pseudoradio {
+        @include button-shadow($cosmos-color);
+      }
+    }
+  }
+
+  &__label {
+    display: flex;
+
+    color: $primary-main;
+
+    &:focus-within {
+      color: $primary-dark;
+    }
+
+    & + & {
+      margin-left: 20px;
+    }
+  }
+
+  &__pseudoradio {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+
+    border: 1px solid $primary-light;
+    border-radius: 50%;
+    cursor: pointer;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 12px;
+      height: 12px;
+
+      @include element-gradient($cosmos-color, $cosmos-gradient-color);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+    }
+  }
+}

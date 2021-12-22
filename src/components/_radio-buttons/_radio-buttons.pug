@@ -1,0 +1,15 @@
+mixin _radio-buttons( options = {})
+
+  if (options.items == undefined)
+    - options.items = [{ label: 'First radiobutton' }, { label: 'Second radiobutton'}];
+  
+  if (options.name == undefined)
+    - options.name = 'justname';
+
+  div(class="radio-buttons")
+    for item in options.items
+
+      label(class="radio-buttons__label")
+        input(class="radio-buttons__radio" type="radio" form=options.form name=options.name value=item.value)
+        span(class="radio-buttons__pseudoradio")
+        = item.label
