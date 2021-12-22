@@ -1,0 +1,12 @@
+mixin _toggle(options = {})
+
+  if (options.text == undefined)
+    - options.text = 'Toggle text'
+
+  if (options.value == undefined)
+    - options.value = 'just value'
+
+  label(class="toggle")
+    input(class="toggle__checkbox" type="checkbox" form=options.form value=options.value)
+    span(class="toggle__pseudocheckbox")
+    =options.text

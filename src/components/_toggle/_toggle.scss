@@ -1,0 +1,53 @@
+.toggle {
+  display: flex;
+  align-items: center;
+  color: $primary-dark;
+
+  &__checkbox {
+    appearance: none;
+
+    &:checked {
+      & + .toggle__pseudocheckbox {
+        border-color: $cosmos-color;
+
+        &::before {
+          left: auto;
+          right: 4px;
+          @include element-gradient($cosmos-color, $cosmos-gradient-color);
+        }
+      }
+    }
+
+    &:focus {
+      outline: none;
+
+      & + .toggle__pseudocheckbox {
+        @include button-shadow($cosmos-color);
+      }
+    }
+  }
+
+  &__pseudocheckbox {
+    position: relative;
+    width: 40px;
+    height: 20px;
+    margin-right: 10px;
+
+    cursor: pointer;
+    border: 1px solid $primary-light;
+    border-radius: 10px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      top: 50%;
+      left: 4px;
+
+      border-radius: 50%;
+      transform: translateY(-50%);
+      background-color: $primary-light;
+    }
+  }
+}
