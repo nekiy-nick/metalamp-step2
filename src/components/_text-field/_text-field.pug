@@ -1,0 +1,32 @@
+mixin _text-field(options = {})
+
+  if (options.placeholder == undefined)
+    - options.placeholder = 'This is text field'
+
+  if (options.subscribe)
+    - subscribeClass= 'text-field__input_subscribe'
+    - options.type = 'email'
+  if (options.date)
+    - dateClass = 'js-text-field__input'
+    - options.placeholder = 'ДД.ММ.ГГГГ'
+
+  div(class="text-field")
+    if (options.header)
+      p(class="text-field__header")= options.header
+
+    label(class="text-field__label")= options.label || options.header || 'text field'
+      input(
+        class="text-field__input"
+        class=subscribeClass
+        class=dateClass
+        type=options.type || "text"
+        name=options.name
+        value=options.value
+        placeholder=options.placeholder
+      )
+
+    if(options.subscribe)
+      button(class="text-field__subscribe-btn" form=options.form type="submit" aria-label="subscribe")
+    -
+      subscribeClass = ''
+      dateClass = ''
