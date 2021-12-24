@@ -1,0 +1,17 @@
+mixin _dropdown(options = {})
+
+
+  div(class="dropdown")
+    header(class="dropdown__header")
+      span(class="dropdown__title")= options.title
+      button(class="dropdown__drop-btn  material-icons" type="button" aria-label="открыть или закрыть выпадающее меню") expand_more
+    div(class="dropdown__body")
+      
+      for item in options.items
+        
+        div(class="dropdown__item")
+          span(class="dropdown__item-title")= item.title
+          div(class="dropdown__buttons-wrapper")
+            button(class="dropdown__count-btn" type="button" aria-label="убавить количество") -
+            span(class="dropdown__count-int") 0
+            button(class="dropdown__count-btn" type="button" aria-label="прибавить количество") +
