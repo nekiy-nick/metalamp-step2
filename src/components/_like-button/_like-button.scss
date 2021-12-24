@@ -14,6 +14,7 @@
   border-radius: 10px;
   background-color: $light-color;
   cursor: pointer;
+  transition: max-width .2s ease-in-out;
 
   &::before {
     position: absolute;
