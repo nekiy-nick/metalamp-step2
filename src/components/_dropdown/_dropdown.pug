@@ -1,17 +1,24 @@
 mixin _dropdown(options = {})
 
+  if (options.itemsType = 'guests' && options.items == undefined)
+    - options.items = [ {title: 'Взрослые'}, {title: 'Дети'}, {title: 'Младенцы'} ]
 
-  div(class="dropdown")
-    header(class="dropdown__header")
-      span(class="dropdown__title")= options.title
-      button(class="dropdown__drop-btn  material-icons" type="button" aria-label="открыть или закрыть выпадающее меню") expand_more
+  div(class="dropdown js-dropdown" data-initial-title=options.title data-type-items=options.itemsType)
+    header(class="dropdown__header js-dropdown__header")
+      span(class="dropdown__title js-dropdown__title" data-title=options.title)= options.title
+      button(class="dropdown__drop-btn  material-icons js-dropdown__drop-btn" type="button" aria-label="открыть или закрыть выпадающее меню") expand_more
     div(class="dropdown__body")
       
       for item in options.items
-        
-        div(class="dropdown__item")
-          span(class="dropdown__item-title")= item.title
-          div(class="dropdown__buttons-wrapper")
-            button(class="dropdown__count-btn" type="button" aria-label="убавить количество") -
-            span(class="dropdown__count-int") 0
-            button(class="dropdown__count-btn" type="button" aria-label="прибавить количество") +
+
+        div(class="dropdown__item js-dropdown__item" data-minimum= item.count || 0 data-maximum= item.maximum || 1000)
+          span(class="dropdown__item-title js-dropdown__item-title")= item.title
+          div(class="dropdown__buttons-ui")
+            button(class="dropdown__item-btn js-dropdown__item-btn" type="button" disabled aria-label="убавить количество" data-btn-value="-") -
+            span(class="dropdown__count-int js-dropdown__count-int" data-initial-count= item.count || 0)= item.count || 0
+            button(class="dropdown__item-btn js-dropdown__item-btn" type="button" aria-label="прибавить количество" data-btn-value="+") +
+
+      if(options.footer)
+        footer(class="dropdown__footer")
+          button(class="dropdown__footer-btn" type="button" disabled) очистить
+          button(class="dropdown__footer-btn js-dropdown__drop-btn" type="button") применить
