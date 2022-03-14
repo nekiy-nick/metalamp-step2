@@ -1,4 +1,15 @@
 .dropdown {
+  border-radius: 6px;
+  overflow: hidden;
+  background-color: $light-color;
+
+  &:hover, &:focus-within {
+
+    .dropdown__header, .dropdown__body {
+      border-color: $primary-main;
+    }
+  }
+
   &__header {
     display: flex;
     justify-content: space-between;
@@ -6,13 +17,22 @@
     padding-left: 15px;
 
     border: 1px solid $primary-light;
-    border-radius: 4px;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
+    border-radius: 6px;
+    overflow: hidden;
+
+    &_open {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
   }
 
   &__title {
     align-self: center;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 220px;
   }
 
   &__drop-btn {
@@ -30,13 +50,26 @@
   }
 
   &__body {
+    display: none;
     padding: 10px 7px;
     padding-left: 15px;
 
     border: 1px solid $primary-light;
     border-top: none;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+  }
+
+  &_open {
+
+    & .dropdown__body {
+      display: block;
+    }
+
+    & .dropdown__header {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
   }
 
   &__item {
@@ -53,7 +86,7 @@
     @include h3-header;
   }
 
-  &__count-btn {
+  &__item-btn {
     width: 30px;
     height: 30px;
 
@@ -68,11 +101,31 @@
       outline: none;
       @include button-shadow($primary-light);
     }
+
+    &:disabled {
+      color: $primary-lighten;
+      border-color: $primary-lighten;
+    }
   }
 
   &__count-int {
     padding: 0 10px;
 
     @include h3-header;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+
+  &__footer-btn {
+    cursor: pointer;
+
+    &:disabled {
+      cursor: initial;
+      opacity: 0;
+    }
   }
 }
