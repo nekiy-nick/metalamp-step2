@@ -1,0 +1,16 @@
+mixin _button-link(options = {})
+
+  if (!options.btnText)
+    - options.btnText = "Click me"
+  -
+    let btnText = 'text';
+    let btnType = 'type';
+    let modeBtn = 'modifier';
+
+  button(class="button-link" class=options.modeBtn class=options.addClass type=options.btnType || "button"
+    disabled= options.disabled || false)= options.btnText
+
+-
+  modifierBtn = {
+    'cosmos-color': 'button-link_cosmos-color',  
+  };

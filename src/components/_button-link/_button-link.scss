@@ -1,0 +1,14 @@
+.button-link {
+  align-self: baseline;
+
+  @include h3-header;
+  color: $primary-main; 
+
+  background-color: $light-color;
+  cursor: pointer;
+  border: none;
+
+  &_cosmos-color {
+    color: $cosmos-color;
+  }
+}
