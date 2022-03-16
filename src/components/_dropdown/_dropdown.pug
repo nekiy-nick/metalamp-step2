@@ -1,5 +1,7 @@
 mixin _dropdown(options = {})
 
+  include ../_button-link/_button-link
+
   if (options.itemsType = 'guests' && options.items == undefined)
     - options.items = [ {title: 'Взрослые'}, {title: 'Дети'}, {title: 'Младенцы'} ]
 
@@ -20,5 +22,17 @@ mixin _dropdown(options = {})
 
       if(options.footer)
         footer(class="dropdown__footer")
-          button(class="dropdown__footer-btn" type="button" disabled) очистить
-          button(class="dropdown__footer-btn js-dropdown__drop-btn" type="button") применить
+
+          +_button-link({
+            btnType: 'button',
+            btnText: 'очистить',
+            modeBtn: modifierBtn['cosmos-color'],
+            addClass: ['dropdown__footer-btn', 'js-dropdown__footer-btn_clear'],
+            disabled: true,
+          })
+          +_button-link({
+            btnType: 'button',
+            btnText: 'применить',
+            modeBtn: modifierBtn['cosmos-color'],
+            addClass: 'js-dropdown__footer-btn_apply',
+          })
