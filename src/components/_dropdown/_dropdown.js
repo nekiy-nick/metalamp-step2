@@ -13,22 +13,50 @@ function countItems(dropdown) {
   let items = dropdown.querySelectorAll('.js-dropdown__item');
   let initialTitle = dropdown.querySelector('.js-dropdown__title').dataset.title;
   let dropdownTitle = dropdown.querySelector('.js-dropdown__title');
+  let isSeparately = dropdown.dataset.countSeparately;
+  let defaultItemTextValue = initialTitle || 'Dropdown title not set';
 
-  let filterChangedItems = [...items].filter(item => {
-    let count = item.querySelector('.js-dropdown__count-int').innerText;
-    return count > 0;
-  });
+  function counter(items, justInteger = false) {
+    let filterChangedItems = [...items].filter(item => {
+      let count = Number(item.querySelector('.js-dropdown__count-int').innerText);
+      return count > 0;
+    });
 
-  let resultString = filterChangedItems.reduce((accumString, item) => {
-    let itemTitle = item.querySelector('.js-dropdown__item-title').innerText.toLowerCase();
-    let count = item.querySelector('.js-dropdown__count-int').innerText;
-    return accumString += `${count} ${itemTitle}, `
-  }, '');
+    let resultString = '';
+
+    if (justInteger) {
+      resultString = filterChangedItems.reduce((accumString, item) => {
+        let count = Number(item.querySelector('.js-dropdown__count-int').innerText);
+        return accumString += count;
+      }, 0);
+      filterChangedItems.length === 0 ? resultString = '' : resultString += ` ${isSeparately}`;
+    } else {
+      resultString = filterChangedItems.reduce((accumString, item) => {
+        let itemTitle = item.querySelector('.js-dropdown__item-title').innerText.toLowerCase();
+        let count = item.querySelector('.js-dropdown__count-int').innerText;
+        return accumString += `${count} ${itemTitle}, `
+      }, '');
+    }
+
+    return resultString;
+  }
+
+  if (isSeparately) {
+    let unityItems = [...items].filter(item => item.dataset.itemSeparately);
+    let separateItems = [...items].filter(item => !item.dataset.itemSeparately);
+    let resultUnityString = counter(unityItems, true);
+    let resultSeparateString = counter(separateItems);
+
+    dropdownTitle.innerText = `${resultUnityString ? resultUnityString + ', ' : ''}${resultSeparateString}`.slice(0, -2) || defaultItemTextValue;
+    return;
+  }
+
+  let resultString = counter(items);
 
   resultString = resultString.slice(0, -2);
-  dropdownTitle.innerText = resultString || initialTitle || 'Dropdown title not set';
+  dropdownTitle.innerText = resultString || defaultItemTextValue;
 
-  return resultString || initialTitle || 'Dropdown title not set';
+  return resultString || defaultItemTextValue;
 }
 
 const dropdownCollection = document.querySelectorAll('.js-dropdown');
@@ -70,10 +98,13 @@ function toggleDropdown(dropdown) {
 
 function clearItemsDefault(items) {
   items.forEach(item => {
-    const initialCount = item.dataset.minimum;
+    const initialCount = Number(item.dataset.minimum);
     const minusBtn = item.querySelector('.js-dropdown__item-btn[data-btn-value="-"]');
+    const plusBtn = item.querySelector('.js-dropdown__item-btn[data-btn-value="+"]');
+    const maximumValue = Number(item.dataset.maximum);
     const itemCount = item.querySelector('.js-dropdown__count-int');
 
+    initialCount < maximumValue ? plusBtn.removeAttribute('disabled') : plusBtn.setAttribute('disabled', '');
     itemCount.innerText = initialCount;
     minusBtn.setAttribute('disabled', '');
   })
