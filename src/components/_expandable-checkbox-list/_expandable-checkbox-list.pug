@@ -1,0 +1,12 @@
+mixin _expandable-checkbox-list(options = {})
+
+  include ../_checkbox-buttons/_checkbox-buttons
+
+  div(class="expandable-checkbox-list js-expandable-checkbox-list")
+    div(class="expandable-checkbox-list__header")
+      span(class="expandable-checkbox-list__title")= options.title
+      button(class="expandable-checkbox-list__drop-btn material-icons js-expandable-checkbox-list__drop-btn" aria-label="открыть или закрыть выпадающий список") expand_more
+    div(class="expandable-checkbox-list__body")
+      +_checkbox-buttons( {
+        items: options.checkboxes
+      } )
