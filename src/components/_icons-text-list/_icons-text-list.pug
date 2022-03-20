@@ -1,0 +1,15 @@
+mixin _icons-text-list(options = {})
+
+  if !options.items
+    - options.items = [{title: '1 title', description: 'description first icon item'}, {title: '2 title', description: 'description second icon item'}, {title: '3 title', description: 'description third icon item...'}];
+
+  div(class="icons-text-list")
+    h3(class="icons-text-list__title")= options.title
+
+    for item in options.items
+      div(class="icons-text-list__item")
+        div(class="icons-text-list__icon-wrapper")
+          span(class="material-icons icons-text-list__icon")= item.icon
+        div(class="icons-text-list__text-wrapper")
+          h4(class="icons-text-list__item-title")= item.title
+          span(class="icons-text-list__item-description")= item.description

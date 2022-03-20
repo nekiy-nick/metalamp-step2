@@ -1,0 +1,41 @@
+.icons-text-list {
+  max-width: 280px;
+
+  background-color: $light-color;
+
+  &__title {
+    @include h2-header;
+  }
+
+  &__item {
+    display: flex;
+    padding-bottom: 20px;
+    padding-right: 20px;
+
+    border-bottom: 1px solid $primary-lighten;
+  }
+
+  &__item + &__item {
+    margin-top: 20px;
+  }
+
+  &__icon {
+    @include gradient-text(
+      $cosmos-color,
+      0%,
+      $cosmos-gradient-color,
+      100%,
+      180deg
+    );
+    font-size: 48px;
+  }
+
+  &__text-wrapper {
+    padding-left: 10px;
+  }
+
+  &__item-title {
+    @include h4-header;
+    margin: 0;
+  }
+}
