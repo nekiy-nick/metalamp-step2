@@ -1,0 +1,17 @@
+mixin _bullet-list(options = {})
+
+  if (!options.title)
+    - options.title = 'this is a bullet list';
+
+  if (!options.items)
+    - options.items = [{value: 'first bullet item'}, {value: 'second bullet item'}, {value: 'third bullet item...'}];
+
+  div(class="bullet-list")
+    span(class="bullet-list__title")= options.title
+
+    ul(class="bullet-list__list")
+
+      for item in options.items
+
+        li(class="bullet-list__item")
+          span(class="bullet-list__text")= item.value
