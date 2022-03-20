@@ -1,10 +1,12 @@
 .icons-text-list {
   max-width: 280px;
-
+  align-self: flex-start;
   background-color: $light-color;
 
   &__title {
     @include h2-header;
+    margin-top: 0;
+    margin-bottom: 20px;
   }
 
   &__item {
@@ -28,6 +30,10 @@
       180deg
     );
     font-size: 48px;
+  }
+
+  &__icon-wrapper {
+    flex-basis: 48px;
   }
 
   &__text-wrapper {
