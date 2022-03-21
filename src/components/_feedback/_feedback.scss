@@ -1,0 +1,45 @@
+.feedback {
+  padding-right: 7px;
+  padding-bottom: 7px;
+
+  background-color: $light-color;
+
+  &__title {
+    @include visually-hidden;
+  }
+
+  &__feedback-info {
+    display: flex;
+  }
+
+  &__user-photo {
+    width: 44px;
+    height: 44px;
+    flex-basis: 44px;
+
+    border-radius: 50%;
+    background-color: $primary-light;
+
+    overflow: hidden;
+  }
+
+  &__text-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+  }
+
+  &__user-name {
+    @include h4-header;
+  }
+
+  &__secondary-info {
+    display: flex;
+    align-items: baseline;
+    margin-top: 10px;
+  }
+
+  &__comment {
+    margin-left: 10px;
+  }
+}

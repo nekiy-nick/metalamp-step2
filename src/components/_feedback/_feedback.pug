@@ -1,0 +1,15 @@
+mixin _feedback(options = {})
+
+  include ../_like-button/_like-button
+
+  section(class="feedback")
+    h4(class="feedback__title")= options.userName
+
+    .feedback__feedback-info
+      img(class="feedback__user-photo" src=options.userPhotoPath || '' alt=options.userName || 'user name')
+      .feedback__text-info
+        span(class="feedback__user-name")= options.userName || 'user name'
+        span(class="feedback__date-comment")= options.date || 'just now'
+    .feedback__secondary-info
+      +_like-button( { likeCount: options.likeCount || 0} )
+      .feedback__comment= options.comment || 'commentary must be here...'
