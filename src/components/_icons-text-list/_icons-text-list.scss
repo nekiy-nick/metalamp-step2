@@ -7,6 +7,10 @@
     @include h2-header;
     margin-top: 0;
     margin-bottom: 20px;
+
+    &_hidden {
+      display: none;
+    }
   }
 
   &__item {

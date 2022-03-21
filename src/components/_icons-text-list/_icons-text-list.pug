@@ -4,7 +4,7 @@ mixin _icons-text-list(options = {})
     - options.items = [{title: '1 title', description: 'description first icon item'}, {title: '2 title', description: 'description second icon item'}, {title: '3 title', description: 'description third icon item...'}];
 
   div(class="icons-text-list")
-    h3(class="icons-text-list__title")= options.title
+    h3(class="icons-text-list__title" class=options.title ? '' : 'icons-text-list__title_hidden')= options.title
 
     for item in options.items
       div(class="icons-text-list__item")
