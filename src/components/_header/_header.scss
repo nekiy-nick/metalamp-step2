@@ -1,0 +1,46 @@
+.header-block {
+  background-color: $light-color;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  padding: 15px 0; // пока так
+
+  &__logotype {
+    flex-basis: 120px;
+    min-height: 40px;
+    background-color: $primary-light;
+  }
+
+  &__ui-wrapper {
+    display: flex;
+    align-items: center;
+
+    background-color: $primary-light
+  }
+
+  .header-block-nav {
+    
+    &__list {
+      margin: 0;
+      display: flex;
+    }
+
+    &__item {
+      float: left;
+      list-style: none;
+
+      & + & {
+        margin-left: 20px;
+      }
+    }    
+  }
+
+  .header-block__buttons-wrapper {
+    margin-left: 20px;
+
+    .button-ui + .button-ui {
+      margin-left: 20px;
+    }
+  }
+}

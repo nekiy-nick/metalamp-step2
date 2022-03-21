@@ -1,0 +1,30 @@
+mixin _header(options = {})
+  include ../_button-ui/_button-ui
+
+  header(class="header-block")
+
+    img(class="header-block__logotype" src="./logo.png" alt="")
+
+    .header-block__ui-wrapper
+      nav(class="header-block__nav header-block-nav js-header-block-nav")
+        ul(class="header-block-nav__list")
+
+          for item in options.navItems
+
+            li(class="header-block-nav__item")
+              a(class="header-block-nav__link" href= item.linkHref || 'addPathAddress')= item.linkText
+
+      if options.userLogIn
+        span(class="header-block__user-name")= options.userName || 'user login'
+      else
+        .header-block__buttons-wrapper
+
+          for btn in options.buttons
+
+            +_button-ui({
+              btnText: btn.btnText,
+              btnType: btn.btnType,
+              modeBtn: btn.modeBtn,
+              link: btn.link,
+              href: btn.href,
+            })
