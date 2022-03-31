@@ -11,10 +11,33 @@ mixin _header(options = {})
 
           for item in options.navItems
 
-            li(class="header-block-nav__item")
-              a(class="header-block-nav__link" href= item.linkHref || 'addPathAddress')= item.linkText
+            if (item.isSubmenu)
+              if (item.submenuItems === undefined)
+                - item.submenuItems = [ {linkText: 'Item 1'}, {linkText: 'Item 2'}, {linkText: 'Item 3'} ];
 
-      if options.userLogIn
+              li(class="header-block-nav__item header-block-nav__item_submenu js-header-block-nav__item_submenu")
+                button(
+                  class="header-block-nav__expand-btn"
+                  class= item.isCurrent ? 'header-block-nav__expand-btn_highlight' : ''
+                  type="button"
+                  aria-label=`открыть подменю ${item.linkText}`)= item.linkText
+
+                ul(
+                  class="header-block-nav__submenu header-block-nav-submenu js-header-block-nav-submenu"
+                  class=item.isDefaultSubmenuOpen ? 'header-block-nav-submenu_active' : '')
+
+                  for subitem in item.submenuItems
+
+                    li(class="header-block-nav-submenu__item")
+                      a(class="header-block-nav-submenu__link" href= subitem.linkHref || 'addPathAddress')= subitem.linkText
+            else
+              li(class="header-block-nav__item")
+                a(
+                class="header-block-nav__link"
+                class= item.isCurrent ? 'header-block-nav__link_highlight' : ''
+                href= item.linkHref || 'addPathAddress')= item.linkText
+
+      if options.isUserLogIn
         span(class="header-block__user-name")= options.userName || 'user login'
       else
         .header-block__buttons-wrapper
