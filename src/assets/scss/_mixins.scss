@@ -24,6 +24,16 @@
   font-family: $main-font;
   color: $primary-dark;
   font-size: $body-text-size;
+  font-weight: bold;
+}
+
+@mixin link-text() {
+  color: $primary-main;
+  text-decoration: none;
+}
+
+@mixin link-a11y-vision($color, $size) {
+  outline: $size solid $color;
 }
 
 @mixin element-gradient($first-color, $second-color) {
@@ -74,4 +84,15 @@
 
 @mixin text-shadow($color) {
   text-shadow: 2px 2px 2px transparent, 4px 4px 4px $color;
+}
+
+@mixin visually-hidden() {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	border: 0;
+	padding: 0;
+	clip: rect(0, 0, 0, 0);
+	overflow: hidden;
 }
