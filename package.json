@@ -38,6 +38,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",
     "jquery": "^3.6.0",
+    "jquery.maskedinput": "^1.4.1",
     "material-icons": "^1.10.3",
     "normalize.css": "^8.0.1"
   }
