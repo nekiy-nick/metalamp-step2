@@ -1,0 +1,41 @@
+.footer-block {
+  background-color: pink;
+
+  &__main-info {
+    display: flex;
+  }
+
+  &__logotype {
+    min-width: 120px;
+    min-height: 40px;
+    background-color: $primary-light;
+  }
+
+  &__secondary-info {
+    display: flex;
+  }
+}
+
+.social-sites {
+  display: flex;
+
+  &__item {
+    list-style: none;
+
+    & + & {
+      margin-left: 20px;
+    }
+  }
+
+  &__link {
+    @include gradient-text(
+      $cosmos-color,
+      0%,
+      $cosmos-gradient-color,
+      100%,
+      180deg
+    );
+    text-decoration: none;
+    font-size: 20px;    
+  }
+}
