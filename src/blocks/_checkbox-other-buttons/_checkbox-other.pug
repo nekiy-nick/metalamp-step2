@@ -1,0 +1,46 @@
+block _checkbox-other
+  include ../../components/_like-button/_like-button
+  include ../../components/_rate-button/_rate-button
+  include ../../components/_checkbox-buttons/_checkbox-buttons
+  include ../../components/_radio-buttons/_radio-buttons
+  include ../../components/_toggle/_toggle
+
+  +_like-button({
+    likeCount: 99
+  })
+
+  +_like-button({
+    likeCount: 12
+  })
+
+  +_like-button({
+    likeCount: 999
+  })
+
+  +_like-button()
+
+  +_rate-button()
+  +_rate-button({
+    count: 7
+  })
+
+  +_checkbox-buttons({
+    items: [
+      { label: 'Широкий коридор',
+        description: 'Ширина коридоров в номере не менее 91 см.'
+      },
+      { label: 'Помощник для инвалидов',
+        description: 'На 1 этаже вас встретит специалист  и проводит до номера.'
+      },
+      { label: 'Можно с питомцами' },
+      { label: 'Можно пригласить гостей (до 10 человек)' },
+    ],
+    form: 'justdoit'
+  })
+
+  +_checkbox-buttons()
+
+  +_radio-buttons({ items: [{ label: 'Мужчина' }, {label: 'Женщина'}], name: 'sexUser'})
+
+  +_toggle({text: 'Получать спецпредложения'})
+  +_toggle

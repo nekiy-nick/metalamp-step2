@@ -1,0 +1,28 @@
+include ../../components/_font-representation/_font-representation
+
+block _font-representation
+    +_font-representation({
+        header: 'h1',
+        text: 'This one is the sub-section or widget title',
+        modeHeader: modifierHeader.h1,
+        modeText: modifierText.h1
+    })
+
+    +_font-representation({
+        header: 'h2',
+        text: 'Next one is the item title inside widgets',
+        modeHeader: modifierHeader.h2,
+        modeText: modifierText.h2
+    })
+
+    +_font-representation({
+        header: 'h3',
+        text: 'This is a label or CTA text',
+        modeHeader: modifierHeader.h3,
+        modeText: modifierText.h3
+    })
+
+    +_font-representation({
+        header: 'body',
+        text: 'This is the body text which is used for most of the design, like paragraphs, lists, etc.'
+    })

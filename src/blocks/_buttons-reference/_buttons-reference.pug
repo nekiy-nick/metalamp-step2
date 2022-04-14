@@ -1,0 +1,39 @@
+block _buttons-reference
+    include ../../components/_button-ui/_button-ui
+    include ../../components/_button-link/_button-link
+
+    +_button-ui({
+        btnText: 'Click me'
+    })
+
+    +_button-ui({
+        btnText: 'Click me',
+        modeBtn: modifierBtn.light,
+        link: true
+    })
+
+    +_button-link({
+      btnText: 'submit',
+      modeBtn: modifierBtn['cosmos-color']
+    })
+
+    +_button-link({
+      btnText: 'константин константинопольский'
+    })
+
+    +_button-link({
+      btnText: 'Click me'
+    })
+
+    +_button-ui({
+        btnText: 'перейти к оплате',
+        modeBtn: modifierBtn.long
+    })
+
+    +_button-ui({
+        btnText: 'константин константинопольский',
+        modeBtn: modifierBtn.long,
+    })
+    +_button-ui({
+      href: 'opti'
+    })

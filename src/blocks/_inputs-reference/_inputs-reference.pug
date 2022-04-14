@@ -1,0 +1,98 @@
+block _inputs-reference
+  include ../../components/_text-field/_text-field
+  include ../../components/_dropdown/_dropdown
+  //- 
+  include ../../components/_expandable-checkbox-list/_expandable-checkbox-list
+  include ../../components/_bullet-list/_bullet-list
+  include ../../components/_icons-text-list/_icons-text-list
+  include ../../components/_feedback/_feedback
+
+  +_text-field({
+    placeholder: 'Just enter anything'
+  })
+
+  +_text-field({
+    placeholder: 'Email',
+    header: 'subscription text field',
+    subscribe: true,
+    label: 'Email',
+    name: 'email',
+    value: 'malito'
+  })
+
+  +_text-field({
+    date: true,
+    header: 'masked text field',
+    label: 'subscribe to our sale',
+    placeholder: 'poka poka'
+  })
+
+  +_dropdown({
+    isOpen: true,
+    title: 'Сколько гостей',
+    items: [
+      {title: 'Взрослые', itemSeparately: 'yes', count: 0, maximum: 4},
+      {title: 'Дети', itemSeparately: 'yes', count: 0, maximum: 4},
+      {title: 'Младенцы', count: 0, maximum: 4},
+    ],
+    countSeparately: 'гости'
+  })
+  +_dropdown({
+    title: 'Удобства номера',
+    footer: true,
+    items: [
+      {title: 'Спальни', count: 1, maximum: 2},
+      {title: 'Кровати', count: 1, maximum: 3},
+      {title: 'Ванные комнаты', count: 1, maximum: 2},
+    ],
+    itemsType: 'comfort',
+  })
+
+  +_dropdown({
+    isOpen: true
+  })
+
+  +_expandable-checkbox-list({
+    title: 'expandable checkbox list',
+    checkboxes: [
+      { label: 'Завтрак', name: '', form: '', value: 'breakfast' },
+      { label: 'Письменный стол', name: '', form: '', value: 'desc' },
+      { label: 'Стул для кормления', name: '', form: '', value: 'child chair' },
+      { label: 'Кроватка', name: '', form: '', value: 'child bad' },
+      { label: 'Телевизор', name: '', form: '', value: 'tv' },
+      { label: 'Шампунь', name: '', form: '', value: 'shampoo' },
+    ]
+  })
+
+
++_bullet-list({
+  title: 'bullet list',
+  items: [
+    {value: 'Нельзя с питомцами'},
+    {value: 'Без вечеринок и мероприятий'},
+    {value: 'Время прибытия — после 13:00, а выезд до 12:00'},
+  ]
+})
+
++_bullet-list
+
++_icons-text-list({
+  title: 'Сведения о номере',
+  items: [
+    {icon: 'insert_emoticon', title: 'Комфорт', description: 'Шумопоглощающие стены'},
+    {icon: 'location_city', title: 'Удобство', description: 'Окно в каждой из спален'},
+    {icon: 'whatshot', title: 'Уют', description: 'Номер оснащён камином'},
+  ]
+})
+
++_icons-text-list
+
++_feedback({
+  userName: 'Мурад Сарафанов',
+  date: '5 дней назад',
+  comment: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.',
+  likeCount: '999',
+  userPhotoPath: '../../components/_feedback/img/feedback-user-photo.png',
+})
+
++_feedback
