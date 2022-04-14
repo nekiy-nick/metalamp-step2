@@ -1,0 +1,17 @@
+.colors-and-type__content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 50px 120px;
+}
+
+.type-wrapper {
+  flex-basis: 40%;
+}
+
+.color-pallete + .color-pallete {
+  margin-top: 20px;
+}
+
+.font-representation + .font-representation {
+  margin-top: 50px;
+}

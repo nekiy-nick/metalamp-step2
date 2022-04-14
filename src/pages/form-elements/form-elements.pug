@@ -1,0 +1,19 @@
+extends ../../layouts/ui-layout/ui-layout
+
+block variables
+  - let title = "Form Elements";
+  - let description = "";
+  - let keywords = "";
+
+block head
+  style
+    include form-elements.scss
+
+block content
+  div(class="form-elements__wrapper")
+    div(class="form-elements__content-block")
+      include ../../blocks/_inputs-reference/_inputs-reference
+    div(class="form-elements__content-block")
+      include ../../blocks/_checkbox-other-buttons/_checkbox-other
+    div(class="form-elements__content-block")
+      include ../../blocks/_buttons-reference/_buttons-reference

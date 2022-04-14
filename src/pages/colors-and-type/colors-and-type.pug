@@ -1,0 +1,17 @@
+extends ../../layouts/ui-layout/ui-layout
+
+block variables
+  - let title = "Colors and Type";
+  - let description = "";
+  - let keywords = "";
+
+block head
+  style
+    include colors-and-type.scss
+
+block content
+  div(class="colors-and-type__content-wrapper")
+    div(class="colors-wrapper")
+      include ../../blocks/_colors-reference/_colors-reference
+    div(class="type-wrapper")
+      include ../../blocks/_type-reference/_type-reference

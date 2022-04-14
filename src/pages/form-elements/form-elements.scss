@@ -1,0 +1,17 @@
+.form-elements__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+
+  padding: 30px;
+}
+
+.form-elements__content-block {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.button-ui + .button-ui {
+  margin-top: 20px;
+}

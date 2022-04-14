@@ -1,0 +1,76 @@
+extends ../../layouts/ui-layout/ui-layout
+
+block variables
+  - let title = "Headers & Footers";
+  - let description = "";
+  - let keywords = "";
+
+block head
+  style
+    include headers-and-footers.scss
+
+block content
+  include ../../components/_header/_header
+  include ../../components/_footer/_footer
+
+  +_header({
+    navItems: [
+      {linkText: 'О нас', linkHref: "kokok"},
+      {linkText: 'Услуги', },
+      {linkText: 'Вакансии', },
+      {linkText: 'Новости', },
+      {linkText: 'Соглашения', },
+    ],
+    isUserLogIn: true,
+    userName: 'юлий цезарь'
+  })
+
+  +_header({
+    navItems: [
+      {
+        linkText: 'О нас',
+        linkHref: "kokok",
+        isCurrent: true,
+      },
+      {
+        linkText: 'Услуги',
+        isSubmenu: true,
+        isDefaultSubmenuOpen: true,
+        submenuItems: [
+          {linkText: 'Услуга 1', linkHref: "kokok"},
+          {linkText: 'Услуга 2', linkHref: "kokok"},
+          {linkText: 'Услуга 3', linkHref: "kokok"},
+        ],
+      },
+      {linkText: 'Вакансии', },
+      {linkText: 'Новости', },
+      {linkText: 'Соглашения', isSubmenu: true, },
+    ],
+    buttons: [
+      {
+        btnText: 'войти',
+        modeBtn: modifierBtn.light,
+        link: true,
+        href: 'prarp',
+      },
+      {
+        btnText: 'зарегистрироваться',
+        link: true,
+        href: 'prarp',
+      }
+    ]
+  })
+
+  +_footer({
+    socialSitesItems: [
+      {
+        socialSite: 'twitter',
+      },
+      {
+        socialSite: 'facebook',
+      },
+      {
+        socialSite: 'instagram',
+      },
+    ]
+  })
